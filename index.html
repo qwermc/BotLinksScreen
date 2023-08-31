@@ -8,9 +8,8 @@
   <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
   <style>
     body {
-      background-color: #efecf6;
       font-family: 'Open Sans', sans-serif;
-      margin: 0;
+      margin: 10px;
       padding: 0;
     }
 
@@ -62,7 +61,7 @@
 
     @media (hover: none) {
       .button:hover {
-      background-color: rgba(105, 78, 167, 0.1);
+        background-color: rgba(105, 78, 167, 0.1);
       }
     }
     
@@ -94,6 +93,7 @@
   </style>
 </head>
 <body>
+<div style="border-radius: 20px; background-color: #efecf6;">
   <h1>Links</h1>
   <div style="padding: 0 20px;">
     <center>
@@ -112,6 +112,8 @@
     <button class="button ripple btn3" onclick="window.location.href='https://qwermc.github.io/BotLinksScreen/privacy.html'">Privacy Policy</button>
     </center>
   </div>
+<br/><br/>
+</div>
 
   <script>
     const buttons = document.querySelectorAll('.button');
