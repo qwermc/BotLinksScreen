@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Links</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+  <style>
+    body {
+      background-color: rgba(105, 78, 167, 0.1);
+      font-family: 'Open Sans', sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    * {
+      font-family: 'Open Sans', sans-serif;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
+    
+    h1 {
+      font-family: 'Lato', sans-serif;
+      text-align: center;
+      margin-top: 20px;
+    }
+    
+    .btn1 {
+      border-radius: 20px 20px 5px 5px;
+    }
+
+    .btn2 {
+      border-radius: 5px 5px 5px 5px;
+    }
+
+    .btn3 {
+      border-radius: 5px 5px 20px 20px;
+    }
+    
+    .button {
+      display: block;
+      width: 100%;
+      max-width: 650px;
+      height: 50px;
+      padding: 10px 0;
+      margin: 5px 0;
+      background-color: rgba(105, 78, 167, 0.1);
+      color: #000000;
+      border: none;
+      outline: none;
+      font-size: 16px;
+      text-decoration: none;
+      font-family: 'Open Sans', sans-serif;
+    }
+
+    .button:hover {
+      background-color: rgba(105, 78, 167, 0.05);
+    }
+
+    @media (hover: none) {
+      .button:hover {
+      background-color: rgba(105, 78, 167, 0.1);
+      }
+    }
+    
+    .ripple {
+      position: relative;
+      overflow: hidden;
+      transform: translate3d(0, 0, 0);
+    }
+    
+    .ripple-effect {
+      position: absolute;
+      border-radius: 999px;
+      background-color: rgba(0, 0, 0, 0.2);
+      animation: ripple-animation 1s;
+      pointer-events: none;
+      filter: blur(10px);
+    }
+    
+    @keyframes ripple-animation {
+      from {
+        transform: scale(0.3);
+        opacity: 1;
+      }
+      to {
+        transform: scale(3);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>Links</h1>
+  <div style="padding: 0 20px;">
+    <center>
+    <p>Telegram Links</p>
+    <button class="button ripple btn1" onclick="window.location.href=''">TG Channel</button>
+    <button class="button ripple btn3" onclick="window.location.href='https://t.me/minceraftChat', '_blank'">TG Chat</button>
+    </center>
+  </div>
+  <div style="padding: 0 20px;">
+    <center>
+    <p>Other Links</p>
+    <button class="button ripple btn1" onclick="window.open('https://www.qwermc.gq/', '_blank')">Website</button>
+    <button class="button ripple btn2" onclick="window.open('https://www.youtube.com/@qwermc', '_blank')">YouTube</button>
+    <button class="button ripple btn2" onclick="window.open('https://www.twitter.com/@theqwermc', '_blank')">X (Twitter)</button>
+    <button class="button ripple btn2" onclick="window.open('https://www.planetminecraft.com/member/qwermc/', '_blank')">PlanetMinecraft</button>
+    <button class="button ripple btn3" onclick="window.location.href='/privacy.html'">Privacy Policy</button>
+    </center>
+  </div>
+
+  <script>
+    const buttons = document.querySelectorAll('.button');
+    buttons.forEach(button => {
+      button.addEventListener('click', function(e) {
+        const ripple = document.createElement('span');
+        ripple.classList.add('ripple-effect');
+        const diameter = Math.max(button.clientWidth, button.clientHeight);
+        const radius = diameter / 2;
+        ripple.style.width = ripple.style.height = `${diameter}px`;
+        ripple.style.left = `${e.clientX - button.offsetLeft - radius}px`;
+        ripple.style.top = `${e.clientY - button.offsetTop - radius}px`;
+        button.appendChild(ripple);
+        setTimeout(() => {
+          ripple.remove();
+        }, 1000);
+      });
+    });
+  </script>
+</body>
+</html>
